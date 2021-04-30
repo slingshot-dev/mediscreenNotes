@@ -45,4 +45,11 @@ public class NotesService {
         notesRepository.deleteById(id);
     }
 
+
+    public Integer findSymptom(String symptom, String patientId) {
+
+        return notesRepository.findNotesByNoteContainsIgnoreCaseAndPatientId(symptom, patientId).size();
+
+    }
+
 }

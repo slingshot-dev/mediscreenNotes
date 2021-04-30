@@ -1,3 +1,5 @@
+db.notes.drop();
+
 var document1 = {
     _id  : "607c548c7c65654ca2a8f44d",
     patientId : "1",

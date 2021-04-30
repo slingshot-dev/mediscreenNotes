@@ -100,5 +100,16 @@ public class Notescontroller  {
     }
 
 
+    /**
+     * Methode pour recuperer des notes en fonction d'un symptome
+     * @param symptom : symptom recherché dans lma note
+     * @return : Retourne la note liée a cet id
+     */
+    @GetMapping("/symptom")
+    public Integer getBySymptom(@RequestParam String symptom, @RequestParam String patientId) {
+//        logger.debug("Getting users with user-id= {}.", id);
+        return notesService.findSymptom(symptom, patientId);
+    }
+
 
 }

@@ -10,5 +10,10 @@ public interface NotesRepository extends MongoRepository<Notes, String> {
 
     List<Notes> findByPatientId(String patienId);
 
+    List<Notes> findNotesByNoteContainsIgnoreCaseAndPatientId (String trigger, String patientId);
+
+
+
+
 
 }
