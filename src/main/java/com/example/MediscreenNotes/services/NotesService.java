@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Couche service pour l'ensemble des actions CRUD pour le Modele Notes
+ */
 
 @Service
 public class NotesService {

@@ -1,7 +1,6 @@
 package com.example.MediscreenNotes.Controllers;
 
 import com.example.MediscreenNotes.modeles.Notes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,26 +11,14 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
-
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-//@AutoConfigureMockMvc(addFilters = false)
 @AutoConfigureMockMvc
-//@EnableAutoConfiguration(exclude = {SecurityFilterAutoConfiguration.class, SecurityAutoConfiguration.class})
 public class ControllersTests {
 
 
@@ -73,7 +60,7 @@ public class ControllersTests {
     @Test
     public void getNotes() throws Exception {
         // Arange & Act
-        this.mockMvc.perform(get("/api/notes/list").param("id", "6076b1c3ea6f313677ed917e"))
+        this.mockMvc.perform(get("/api/notes/list").param("id", "8076b1c3ea6f313677ed917e"))
                 // Assert
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
@@ -91,10 +78,11 @@ public class ControllersTests {
     }
 
 
+
     @Test
     public void UpdateNote() throws Exception {
         // Arange & Act
-        this.mockMvc.perform(post("/api/notes/add")
+        this.mockMvc.perform(post("/api/notes/update")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(notes1u)))
                 // Assert
@@ -110,5 +98,17 @@ public class ControllersTests {
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
+
+    @Test
+    public void getSymptom() throws Exception {
+        // Arange & Act
+        this.mockMvc.perform(get("/api/notes/symptom")
+                .param("symptom", "poids")
+                .param("patientId", "1"))
+                // Assert
+                .andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+    }
+
 
 }

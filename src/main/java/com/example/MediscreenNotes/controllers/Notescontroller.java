@@ -107,7 +107,6 @@ public class Notescontroller  {
      */
     @GetMapping("/symptom")
     public Integer getBySymptom(@RequestParam String symptom, @RequestParam String patientId) {
-//        logger.debug("Getting users with user-id= {}.", id);
         return notesService.findSymptom(symptom, patientId);
     }
 
