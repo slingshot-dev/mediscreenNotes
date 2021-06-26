@@ -3,6 +3,7 @@ package com.example.MediscreenNotes.services;
 import com.example.MediscreenNotes.Repositories.NotesRepository;
 import com.example.MediscreenNotes.modeles.Notes;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,7 @@ public class NotesService {
     }
 
 
-    public List<Notes> findAll(){
+    public List<Notes> findAll() {
         return notesRepository.findAll();
     }
 
@@ -28,19 +29,21 @@ public class NotesService {
         return notesRepository.findById(id);
     }
 
-    public List<Notes> findNotesByPatientId(String patientId) {return notesRepository.findByPatientId(patientId);}
+    public List<Notes> findNotesByPatientId(String patientId) {
+        return notesRepository.findByPatientId(patientId);
+    }
 
-    public Notes add(Notes notes){
+    public Notes add(Notes notes) {
         return notesRepository.save(notes);
     }
 
 
-    public Notes update(Notes notes){
+    public Notes update(Notes notes) {
         return notesRepository.save(notes);
     }
 
 
-    public void delete(Notes notes){
+    public void delete(Notes notes) {
         notesRepository.delete(notes);
     }
 
